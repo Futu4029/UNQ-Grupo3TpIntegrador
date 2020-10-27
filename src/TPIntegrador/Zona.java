@@ -16,5 +16,4 @@ public class Zona {
 	public Inspector getInspector() {
 		return inspector;
 	}
-
 }

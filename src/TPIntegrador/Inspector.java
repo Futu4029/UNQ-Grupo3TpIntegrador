@@ -17,5 +17,4 @@ public class Inspector {
 	public Celular getCelular() {
 		return celular;
 	}
-
 }
