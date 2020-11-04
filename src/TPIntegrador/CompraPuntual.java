@@ -12,7 +12,16 @@ public class CompraPuntual {
 		return horasHabilitadas;
 	}
 	
-	public void actualizarHoras() { /// (?
+	public void generarComprobante() {
+		
+	}
+	
+	public void inicioDeEstacionamiento(String patente) {
+		
 	}
 
+	public void finDeEstacionamiento() {
+		
+	}
+	
 }

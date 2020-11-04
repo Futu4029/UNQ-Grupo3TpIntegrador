@@ -11,10 +11,10 @@ public class Estacionamiento {
 	private float precioPorHora;
 	private Comprobante comprobante;
 	
-	public Estacionamiento(String patente, LocalDate horaInicio, LocalDate horaFin) {
+	public Estacionamiento(String patente) {
 		this.patente = patente;
-		this.horaInicio = horaInicio;
-		this.horaFinal = horaFin;
+		this.horaInicio = ;
+		this.horaFinal = ;
 		this.estaVigente = true;
         /////////////////
 	}

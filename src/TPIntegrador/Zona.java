@@ -1,5 +1,7 @@
 package TPIntegrador;
 
+import java.util.ArrayList;
+
 public class Zona {
 
     private ArrayList<PuntoDeVenta> puntosDeVentas;
