@@ -8,12 +8,15 @@ public class Estacionamiento {
 	private String patente;
 	private LocalDate horaInicio;
 	private LocalDate horaFinal;
+	private float precioPorHora;
+	private Comprobante comprobante;
 	
 	public Estacionamiento(String patente, LocalDate horaInicio, LocalDate horaFin) {
 		this.patente = patente;
 		this.horaInicio = horaInicio;
 		this.horaFinal = horaFin;
-		this.estaVigente = false; // (?
+		this.estaVigente = true;
+        /////////////////
 	}
 
 	public Boolean getEstaVigente() {
@@ -32,11 +35,19 @@ public class Estacionamiento {
 		return horaFinal;
 	}
 	
-	public void inicioEstacionamiento() {
+	public float getPrecioPorHora() {
+		return precioPorHora;
+	}
+	
+	public Comprobante getComprobante() {
+		return comprobante;
+	}
+	
+	public void generarComprobante() {
 		
 	}
 
-	public void finDeEstacionamiento() {
+	public void finDeEstacionamiento(String patente) {
 		
 	}
 }
