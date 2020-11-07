@@ -1,14 +1,15 @@
-package TPIntegrador;
+package tpIntegrador;
 
-public class CompraPuntual {
+public class CompraPuntual extends Estacionamiento{
 
-	private Integer horasHabilitadas;
+	private int horasHabilitadas;
 	
-	public CompraPuntual(Integer horas) {
+	public CompraPuntual(int horas) {
+		super();
 		this.horasHabilitadas = horas;
 	}
 
-	public Integer getHorasHabilitadas() {
+	public int getHorasHabilitadas() {
 		return horasHabilitadas;
 	}
 	

@@ -1,4 +1,4 @@
-package TPIntegrador;
+package tpIntegrador;
 
 public class CompraVirtual extends Estacionamiento implements MovementSensor{
 

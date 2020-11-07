@@ -1,4 +1,4 @@
-package TPIntegrador;
+package tpIntegrador;
 
 import java.util.ArrayList;
 
@@ -37,6 +37,10 @@ public class SEM {
 	
 	public void desuscribir(Observer o) {
 	
+	}
+	
+	public void registrarCompra(Comprobante c) {
+		
 	}
 	
 	public String generarInicioEstacionamiento(Celular celular, String s) {

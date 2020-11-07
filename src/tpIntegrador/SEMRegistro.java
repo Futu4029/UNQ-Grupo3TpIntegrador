@@ -1,4 +1,4 @@
-package TPIntegrador;
+package tpIntegrador;
 
 import java.util.ArrayList;
 

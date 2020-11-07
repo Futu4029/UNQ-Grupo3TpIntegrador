@@ -1,4 +1,4 @@
-package TPIntegrador;
+package tpIntegrador;
 
 public class ETicket extends Comprobante{
 
