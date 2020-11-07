@@ -4,88 +4,42 @@ import java.util.ArrayList;
 
 public class SEM {
 
-	private Boolean estado;
-	private ArrayList<String> patentes;
-	private ArrayList<CallCenter> callCenters;   // ?)
-	private ArrayList<Zona> zonas;
-	private ArrayList<?> compras; /// (?
-	private ArrayList<Estacionamiento> estacionamientos;
-	private ArrayList< //(? )> creditosDisponibles;  ///   (?
-	private ArrayList<Infraccion> infracciones;
-	private ArrayList<AppGobierno > apps;  /// (?
-	
+	private SEMRegistro registro;
+	private ArrayList<Observer> observers;
 	
 	public SEM() {
+		this.registro = new SEMRegistro();
+		this.observers = .....;
 	}
 	
-	public Boolean getEstado() {
-		return estado;
-	}
-
-	public ArrayList<String> getPatentes() {
-		return patentes;
-	}
-
-	public ArrayList<CallCenter> getCallCenters() {
-		return callCenters;
-	}
-
-	public ArrayList<Zona> getZonas() {
-		return zonas;
-	}
-
-	public ArrayList< (? )> getCompras() {
-		return compras;
-	}
-
-	public ArrayList<Estacionamiento> getEstacionamientos() {
-		return estacionamientos;
+	public ArrayList<Observer> getObservers(){
+		return observers;
 	}
 	
-	public ArrayList<Infraccion> getInfracciones() {
-		return infracciones;
-	}
-
-	public ArrayList<AppGobierno> getApps() {
-		return apps;
-	}
-	
-	public void finalizarEstacionamiento() {
+	public void consultarCredito(Celular celular) {
 		
 	}
 	
-	public void suscribir(CallCenter callCenter) {
-		this.callCenters.add(callCenter);
+	public void verificarVigencia(String patente) {
+		
 	}
 	
-	public void desuscribir(CallCenter callCenter) {
-		this.callCenters.remove(callCenter);
+	public void finalizarCompraVirtual(Celular celular) {
+		
 	}
 	
-	public void registrarCompra( (? ) {
-		this.compras.add(compra);
+	public void finalizarEstacionamientos() {
+		
 	}
 	
-	public void registrarPatente(String patente) {
-		this.patentes.add(patente);
+	public void suscribir(Observer o) {
 	}
 	
-	public void registrarZona(Zona zona) {
-		this.zonas.add(zona);
+	public void desuscribir(Observer o) {
+	
 	}
 	
-	public void registrarEstacionamiento(Estacionamiento estacionamiento) {
-		this.estacionamientos.add(estacionamiento);
-	}
-	
-	public void registrarCredito() {		
-	}
-	
-	public void registrarInfraccion(Infraccion infraccion) {
-		this.infracciones.add(infraccion);
-	}
-	
-	public void registrarApp(AppGobierno app) {
-		this.apps.add(app);
+	public String generarInicioEstacionamiento(Celular celular, String s) {
+		
 	}
 }
