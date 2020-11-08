@@ -1,5 +1,6 @@
 package tpIntegrador.appEstacionamiento;
 
+import tpIntegrador.Comprobante;
 import tpIntegrador.ETicket;
 import tpIntegrador.Estacionamiento;
 
@@ -64,7 +65,12 @@ public class CompraVirtual extends Estacionamiento implements MovementSensor{
 	//METHODS
 	
 	public void inicioEstacionamiento(String patente, Integer celular) { 
-		//implementar que genere un ticket y se cargue en estacionamientos
+		//implementar que genere un ticket y se cargue en estacionamientos si el celular tiene saldo
+		if(true) {
+			this.getEstacionamientos().add(this);
+			this.setComprobante(new ETicket());
+		}
+		
 	}
 	
 	public void finEstacionamiento(Integer celular) {
@@ -80,7 +86,7 @@ public class CompraVirtual extends Estacionamiento implements MovementSensor{
 		//agregar if con condicion de si el estacionamiento es vigente
 		this.alerta.comenzoAManejar();
 		
-		this.modo.comenzoAManejar(this, getPatente(), celular);
+		this.modo.comenzoAManejar(this, celular);
 
 	}
 	
@@ -88,7 +94,7 @@ public class CompraVirtual extends Estacionamiento implements MovementSensor{
 		//agregar if con condicion de si el estacionamiento no es vigente
 			this.alerta.comenzoACaminar();
 		
-			this.modo.comenzoAManejar(this, getPatente(), celular);
+			this.modo.comenzoACaminar(this, getPatente(), celular);
 	}
 
 

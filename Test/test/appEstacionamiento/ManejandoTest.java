@@ -22,7 +22,7 @@ class ManejandoTest {
 	}
 
 	@Test
-	void TestManejandoNoHaceNada() {
+	void testManejandoNoHaceNada() {
 		
 		manejando.manejando();
 		
@@ -31,7 +31,7 @@ class ManejandoTest {
 	}
 	
 	@Test
-	void TestCaminandoCambiaElEstadoYEnviaMensajeComenzoACaminar() {
+	void testCaminandoCambiaElEstadoYEnviaMensajeComenzoACaminar() {
 		
 		manejando.caminando();
 		verify(app).setEstadoMovimiento(any(Caminando.class));

@@ -11,6 +11,10 @@ public class ETicket extends Comprobante{
 		this.numeroCelular = celular;
 	}
 
+	public ETicket() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public Integer getMonto() {
 		return monto;
 	}

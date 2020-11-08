@@ -13,7 +13,7 @@ public class ModoManual implements ModoApp {
 	}
 
 	@Override
-	public void comenzoAManejar(CompraVirtual app, String patente, Integer celular) {
+	public void comenzoAManejar(CompraVirtual app, Integer celular) {
 		// TODO Auto-generated method stub
 
 	}

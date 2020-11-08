@@ -10,14 +10,12 @@ public class ModoAutomatico implements ModoApp {
 	@Override
 	public void comenzoACaminar(CompraVirtual app, String patente, Integer celular) {
 		app.inicioEstacionamiento(patente, celular);
-		System.out.println("Se ha iniciado un estacionamiento");
 		
 	}
 
 	@Override
-	public void comenzoAManejar(CompraVirtual app, String patente, Integer celular) {
+	public void comenzoAManejar(CompraVirtual app, Integer celular) {
 		app.finEstacionamiento(celular);
-		System.out.println("Se ha finalizado un estacionamiento");
 	}
 
 }
