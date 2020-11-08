@@ -1,4 +1,4 @@
-package tpIntegrador;
+package tpIntegrador.appEstacionamiento;
 
 public interface MovementSensor {
 
