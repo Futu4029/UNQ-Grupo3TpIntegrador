@@ -15,8 +15,9 @@ public class Estacionamiento {
 	private Comprobante comprobante;
 	private String patente;
 	
-	public Estacionamiento() {
+	public Estacionamiento(String patente) {
 		super();
+		this.patente = patente;
 	}
 	
 	public boolean estaVigente() throws ParseException {
@@ -27,6 +28,30 @@ public class Estacionamiento {
 		return horaActual.after(horaInicioFranja) && horaActual.before(horaFinalFranja);
 	}
 
+	public ArrayList<Estacionamiento> getEstacionamientos() {
+		return estacionamientos;
+	}
+
+	public void setEstacionamientos(ArrayList<Estacionamiento> estacionamientos) {
+		this.estacionamientos = estacionamientos;
+	}
+
+	public Date getHoraInicio() {
+		return horaInicio;
+	}
+
+	public void setHoraInicio(Date horaInicio) {
+		this.horaInicio = horaInicio;
+	}
+
+	public Date getHoraFinal() {
+		return horaFinal;
+	}
+
+	public void setHoraFinal(Date horaFinal) {
+		this.horaFinal = horaFinal;
+	}
+
 	public float getPrecioPorHora() {
 		return precioPorHora;
 	}
@@ -34,6 +59,23 @@ public class Estacionamiento {
 	public void setPrecioPorHora(float precioPorHora) {
 		this.precioPorHora = precioPorHora;
 	}
+
+	public Comprobante getComprobante() {
+		return comprobante;
+	}
+
+	public void setComprobante(Comprobante comprobante) {
+		this.comprobante = comprobante;
+	}
+
+	public String getPatente() {
+		return patente;
+	}
+
+	public void setPatente(String patente) {
+		this.patente = patente;
+	}
+
 	
 	
 
