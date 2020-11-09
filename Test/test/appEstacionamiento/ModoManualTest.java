@@ -5,12 +5,12 @@ import static org.mockito.Mockito.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import tpIntegrador.appEstacionamiento.CompraVirtual;
+import tpIntegrador.appEstacionamiento.EstacionamientoApp;
 import tpIntegrador.appEstacionamiento.ModoManual;
 
 class ModoManualTest {
 	private ModoManual modo;
-	private CompraVirtual app;
+	private EstacionamientoApp app;
 	private Integer celular;
 	private String patente;
 
@@ -18,7 +18,7 @@ class ModoManualTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		modo = new ModoManual();
-		app = mock(CompraVirtual.class);
+		app = mock(EstacionamientoApp.class);
 		celular = 155023023;
 		patente = "A10ZO";		
 	}

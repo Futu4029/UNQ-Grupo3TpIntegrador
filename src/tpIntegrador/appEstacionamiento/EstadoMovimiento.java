@@ -1,21 +1,21 @@
 package tpIntegrador.appEstacionamiento;
 
 public abstract class EstadoMovimiento {
-	private CompraVirtual app;
+	private EstacionamientoApp app;
 
-	public EstadoMovimiento(CompraVirtual app) {
+	public EstadoMovimiento(EstacionamientoApp app) {
 		super();
 		this.app = app;
 	}
 	
 	
-	public CompraVirtual getApp() {
+	public EstacionamientoApp getApp() {
 		return app;
 	}
 
 
 
-	public void setApp(CompraVirtual app) {
+	public void setApp(EstacionamientoApp app) {
 		this.app = app;
 	}
 

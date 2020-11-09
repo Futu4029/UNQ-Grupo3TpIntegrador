@@ -1,14 +1,14 @@
 package tpIntegrador.appEstacionamiento;
 
-public class Caminando extends EstadoMovimiento {
+public class EstadoCaminando extends EstadoMovimiento {
 
-	public Caminando(CompraVirtual app) {
+	public EstadoCaminando(EstacionamientoApp app) {
 		super(app);
 	}
 
 	@Override
 	public void manejando() {
-		this.getApp().setEstadoMovimiento(new Manejando(this.getApp()));
+		this.getApp().setEstadoMovimiento(new EstadoManejado(this.getApp()));
 		this.getApp().comenzoAManejar();
 	}
 

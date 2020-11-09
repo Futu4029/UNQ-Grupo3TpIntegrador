@@ -1,19 +1,20 @@
 package tpIntegrador.appEstacionamiento;
 
-import tpIntegrador.Comprobante;
-import tpIntegrador.ETicket;
-import tpIntegrador.Estacionamiento;
+import tpIntegrador.SEMEstacionamiento;
 
-public class CompraVirtual extends Estacionamiento implements MovementSensor{
-
+public class EstacionamientoApp implements MovementSensor{
+	
+	private SEMEstacionamiento sem;
 	private Integer celular;
+	private String patente;
 	private ModoApp modo;
 	private ModoAlerta alerta;
 	private EstadoMovimiento estadoMovimiento;
 	
-	public CompraVirtual(String patente, Integer celular, ModoApp modo, ModoAlerta alerta, EstadoMovimiento estadoMovimiento) {
-		super(patente);
+	public EstacionamientoApp(SEMEstacionamiento sem ,String patente, Integer celular, ModoApp modo, ModoAlerta alerta, EstadoMovimiento estadoMovimiento) {
+		this.sem = sem;
 		this.celular = celular;
+		this.patente = patente;
 		this.modo = modo;
 		this.alerta = alerta;
 		this.estadoMovimiento = estadoMovimiento;
@@ -65,16 +66,13 @@ public class CompraVirtual extends Estacionamiento implements MovementSensor{
 	//METHODS
 	
 	public void inicioEstacionamiento(String patente, Integer celular) { 
-		//implementar que genere un ticket y se cargue en estacionamientos si el celular tiene saldo
-		if(true) {
-			this.getEstacionamientos().add(this);
-			this.setComprobante(new ETicket());
-		}
-		
+		//se envia el mensaje de inicio a SEM
+		sem.inicioEstacionamiento(patente, celular);
 	}
 	
 	public void finEstacionamiento(Integer celular) {
-		// implementar que se saque de estacionamientos 
+		// se envia el mensaje a sem para que finalice el estacionamiento
+		sem.finEstacionamiento(celular);
 	}
 
 
@@ -94,7 +92,7 @@ public class CompraVirtual extends Estacionamiento implements MovementSensor{
 		//agregar if con condicion de si el estacionamiento no es vigente
 			this.alerta.comenzoACaminar();
 		
-			this.modo.comenzoACaminar(this, getPatente(), celular);
+			this.modo.comenzoACaminar(this, patente, celular);
 	}
 
 

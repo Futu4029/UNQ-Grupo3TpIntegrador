@@ -1,18 +1,18 @@
 package test.appEstacionamiento;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.mockito.Mockito.*;
 
-import tpIntegrador.appEstacionamiento.CompraVirtual;
+import tpIntegrador.SEMEstacionamiento;
+import tpIntegrador.appEstacionamiento.EstacionamientoApp;
 import tpIntegrador.appEstacionamiento.EstadoMovimiento;
 import tpIntegrador.appEstacionamiento.ModoAlerta;
 import tpIntegrador.appEstacionamiento.ModoApp;
 
-class CompraVirtualTest {
-	private CompraVirtual app; 
+class EstacionamientoAppTest {
+	private SEMEstacionamiento sem;
+	private EstacionamientoApp app; 
 	private Integer celular;
 	private String patente;
 	private EstadoMovimiento estado;
@@ -23,30 +23,45 @@ class CompraVirtualTest {
 
 	@BeforeEach
 	void setUp() throws Exception {
+		sem = mock(SEMEstacionamiento.class);
 		celular = 1551468925;
 		patente = "A10ZO";
 		estado = mock(EstadoMovimiento.class);
 		modo = mock(ModoApp.class);
 		alerta = mock(ModoAlerta.class);
-		app = new CompraVirtual(patente, celular, modo, alerta, estado);
+		app = new EstacionamientoApp(sem, patente, celular, modo, alerta, estado);
 		
 	}
 
 	@Test
-	void testAlIniciarEstacionamientoSeGeneraUnTicketYSeRegistraElMismo() {
+	void testAlIniciarEstacionamientoSeEnviaUnMensajeASem() {
 		
 		app.inicioEstacionamiento(patente, celular);
 		
-		fail("Not yet implemented");
+		verify(sem).inicioEstacionamiento(patente, celular);
 	}
 	
 	@Test
 	void testAlFinalizarEstacionamientoElMismoYaNoSeEncuentraRegistado() {
 		
+		app.finEstacionamiento(celular);
+		
+		verify(sem).finEstacionamiento(celular);
 	}
 
 	@Test
 	void testAlRecibirMensajeDrivingEsteSeDelegaASusEstados() {
 		
+		app.driving();
+		
+		verify(estado).manejando();
+	}
+	
+	@Test
+	void testAlRecibirMensajeWalkingEsteSeDelegaASusEstados() {
+		
+		app.walking();
+		
+		verify(estado).caminando();
 	}
 }

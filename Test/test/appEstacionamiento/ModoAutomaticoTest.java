@@ -3,7 +3,7 @@ package test.appEstacionamiento;
 
 import static org.mockito.Mockito.*;
 
-import tpIntegrador.appEstacionamiento.CompraVirtual;
+import tpIntegrador.appEstacionamiento.EstacionamientoApp;
 import tpIntegrador.appEstacionamiento.ModoAutomatico;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
 
 class ModoAutomaticoTest {
 	private ModoAutomatico modo;
-	private CompraVirtual app;
+	private EstacionamientoApp app;
 	private Integer celular;
 	private String patente;
 
@@ -19,7 +19,7 @@ class ModoAutomaticoTest {
 	void setUp() throws Exception {
 		
 		modo = new ModoAutomatico();
-		app = mock(CompraVirtual.class);
+		app = mock(EstacionamientoApp.class);
 		celular = 155023023;
 		patente = "A10ZO";		
 	}

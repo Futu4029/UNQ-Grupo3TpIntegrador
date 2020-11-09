@@ -6,19 +6,19 @@ import static org.mockito.Mockito.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import tpIntegrador.appEstacionamiento.Caminando;
-import tpIntegrador.appEstacionamiento.CompraVirtual;
-import tpIntegrador.appEstacionamiento.Manejando;
+import tpIntegrador.appEstacionamiento.EstadoCaminando;
+import tpIntegrador.appEstacionamiento.EstacionamientoApp;
+import tpIntegrador.appEstacionamiento.EstadoManejado;
 
-class ManejandoTest {
-	private CompraVirtual app;
-	private Manejando manejando;
+class EstadoManejandoTest {
+	private EstacionamientoApp app;
+	private EstadoManejado manejando;
 	
 
 	@BeforeEach
 	void setUp() throws Exception {
-		app = mock(CompraVirtual.class);
-		manejando = new Manejando(app);
+		app = mock(EstacionamientoApp.class);
+		manejando = new EstadoManejado(app);
 	}
 
 	@Test
@@ -26,7 +26,7 @@ class ManejandoTest {
 		
 		manejando.manejando();
 		
-		verify(app, never()).setEstadoMovimiento(any(Manejando.class));
+		verify(app, never()).setEstadoMovimiento(any(EstadoManejado.class));
 		verify(app,never()).comenzoACaminar();
 	}
 	
@@ -34,7 +34,7 @@ class ManejandoTest {
 	void testCaminandoCambiaElEstadoYEnviaMensajeComenzoACaminar() {
 		
 		manejando.caminando();
-		verify(app).setEstadoMovimiento(any(Caminando.class));
+		verify(app).setEstadoMovimiento(any(EstadoCaminando.class));
 		verify(app).comenzoACaminar();
 	}
 	
