@@ -1,4 +1,4 @@
-package estacionamiento;
+package tpIntegrador.estacionamiento;
 
 import java.time.LocalTime;
 
