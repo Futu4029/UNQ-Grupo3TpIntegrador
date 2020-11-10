@@ -2,6 +2,8 @@ package tpIntegrador;
 
 import java.util.ArrayList;
 
+import tpIntegrador.semControl.Infraccion;
+
 public class SEMRegistro {
 
 	private ArrayList<Zona> zonas;
