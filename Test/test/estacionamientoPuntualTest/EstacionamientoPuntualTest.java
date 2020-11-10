@@ -40,7 +40,23 @@ class EstacionamientoPuntualTest {
 	}
 	
 	@Test
-	void sonPatentesIguales() {
+	void getCelularTest() {
+		assertEquals(null, sut.getCelular());
+	}	
+	
+	@Test
+	void sonNumerosIgualesTest() {
+		assertFalse(sut.sonNumerosIguales("123"));
+	}	
+	
+	@Test
+	void sonPatentesIgualesTest() {
 		assertTrue(sut.sonPatentesIguales("WEE 420"));
 	}	
+	
+	@Test
+	void estaVigenteTest() {
+		assertTrue(sut.estaVigente());
+	}
+	
 }
