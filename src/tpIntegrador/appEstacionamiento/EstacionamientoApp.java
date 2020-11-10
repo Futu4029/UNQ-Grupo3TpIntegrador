@@ -22,16 +22,29 @@ public class EstacionamientoApp implements MovementSensor{
 	
 	//GETTERS AND SETTERS
 	
+	public SEMEstacionamiento getSem() {
+		return sem;
+	}
+	
+	public void setSem(SEMEstacionamiento sem) {
+		this.sem = sem;
+	}
+	
 	public Integer getCelular() {
 		return celular;
 	}
 
-
-
 	public void setCelular(Integer celular) {
 		this.celular = celular;
 	}
+	
+	public String getPatente() {
+		return patente;
+	}
 
+	public void setPatente(String patente) {
+		this.patente = patente;
+	}
 
 
 	public ModoApp getModo() {
@@ -39,11 +52,9 @@ public class EstacionamientoApp implements MovementSensor{
 	}
 
 
-
 	public void setModo(ModoApp modo) {
 		this.modo = modo;
 	}
-
 
 
 	public ModoAlerta getAlerta() {
@@ -51,11 +62,9 @@ public class EstacionamientoApp implements MovementSensor{
 	}
 
 
-
 	public void setAlerta(ModoAlerta alerta) {
 		this.alerta = alerta;
 	}
-
 
 
 	public EstadoMovimiento getEstadoMovimiento() {
