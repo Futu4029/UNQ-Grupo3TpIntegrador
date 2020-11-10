@@ -12,7 +12,6 @@ public class SEMControl implements ISEMControl {
 	}
 
 
-	@Override
 	public ArrayList<Infraccion> getInfracciones() {
 		return infracciones;
 	}
