@@ -24,6 +24,10 @@ public class SEMCompra implements ISEMCompra{
 	public Integer getProxNroControl() {
 		return proxNroControl;
 	}
+	
+	public void setProxNroControl(Integer nroControl) {
+		this.proxNroControl = nroControl;
+	}
 
 	public void registrar(Compra compra) {
 		this.compras.add(compra);
@@ -38,8 +42,8 @@ public class SEMCompra implements ISEMCompra{
 	}
 
 	@Override
-	public void recargarCredito(String nroCelular, float monto) {
-		CompraPorCredito compra = new CompraPorCredito(puntoDeVenta, monto, nroCelular);
+	public void comprarCredito(String nroCelular, float monto) {
+		CompraDeCredito compra = new CompraDeCredito(puntoDeVenta, monto, nroCelular);
 		this.registrar(compra);
 		this.semCelular.compra(nroCelular, monto); 
 	}

@@ -1,15 +1,17 @@
 package tpIntegrador.semCompra;
 
+import tpIntegrador.semZona.PuntoDeVenta;
+
 public class CompraPuntual extends Compra {
 
-	private int cantidadDeHoras;
+	private Integer cantidadDeHoras;
 	
-	public CompraPuntual(String puntoDeVenta, int horas) {
+	public CompraPuntual(PuntoDeVenta puntoDeVenta, Integer horas) {
 		super(puntoDeVenta);
 		this.cantidadDeHoras = horas;
 	}
 
-	public int getCantidadDeHoras() {
+	public Integer getCantidadDeHoras() {
 		return cantidadDeHoras;
 	}
 	

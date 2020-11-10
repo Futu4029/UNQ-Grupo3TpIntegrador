@@ -1,17 +1,19 @@
 package tpIntegrador.semCompra;
 
-public class CompraPorCredito extends Compra{
+import tpIntegrador.semZona.PuntoDeVenta;
 
-	private Integer monto;
+public class CompraDeCredito extends Compra{
+
+	private float monto;
 	private String numeroCelular;
 	
-	public CompraPorCredito(String puntoDeVenta, Integer monto, String nroCelular) {
+	public CompraDeCredito(PuntoDeVenta puntoDeVenta, float monto, String nroCelular) {
 		super(puntoDeVenta);
 		this.monto = monto;
 		this.numeroCelular = nroCelular;
 	}
 
-	public Integer getMonto() {
+	public float getMonto() {
 		return monto;
 	}
 

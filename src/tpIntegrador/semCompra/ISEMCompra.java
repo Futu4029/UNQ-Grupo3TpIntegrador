@@ -4,6 +4,6 @@ public interface ISEMCompra {
 
 	public void generarCompraPuntual(Integer cantHoras);
 	
-	public void recargarCredito(String nroCelular, float monto);
+	public void comprarCredito(String nroCelular, float monto);
 	
 }

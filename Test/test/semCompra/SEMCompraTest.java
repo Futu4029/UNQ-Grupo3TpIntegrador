@@ -6,7 +6,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import tpIntegrador.semCompra.Compra;
-import tpIntegrador.semCompra.CompraPorCredito;
+import tpIntegrador.semCompra.CompraDeCredito;
 import tpIntegrador.semCompra.CompraPuntual;
 import tpIntegrador.semCompra.SEMCompra;
 
@@ -30,7 +30,7 @@ class SEMCompraTest {
 	@Test
 	void RegistrarCompraEnSuColeccion() {
 		Compra compra1 = mock(CompraPuntual.class);
-		Compra compra2 = mock(CompraPorCredito.class);
+		Compra compra2 = mock(CompraDeCredito.class);
 		
 		semCompra.registrar(compra1);
 		assertEquals(1, semCompra.getCompras().size());
@@ -44,7 +44,7 @@ class SEMCompraTest {
 		semCompra.generarCompraPuntual(5);
 		assertEquals(1, semCompra.getCompras().size());
 		
-		semCompra.recargarCredito("1122334455", 150);
+		semCompra.comprarCredito("1122334455", 150);
 		assertEquals(2, semCompra.getCompras().size());	
 	}
 
