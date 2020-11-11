@@ -34,5 +34,8 @@ public class EstacionamientoPuntual extends Estacionamiento{
 	public boolean estaVigente() {
 		return this.getHoraFinal().isAfter(LocalTime.now());
 	}
+
+	@Override
+	public void finalizar(LocalTime horaFin) {}
 	
 }

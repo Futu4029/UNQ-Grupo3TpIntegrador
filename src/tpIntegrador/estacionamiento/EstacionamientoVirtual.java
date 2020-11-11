@@ -25,8 +25,13 @@ public class EstacionamientoVirtual extends Estacionamiento{
 		return this.estaVigente;
 	}
 	
-	public void finalizar() {
+	public void finalizar(LocalTime horaFin) {
 		this.setEstaVigente(false);
+		this.actualizarHoraFin(horaFin);
+	}
+	
+	public void actualizarHoraFin(LocalTime horaFin) {
+		this.setHoraFinal(horaFin);
 	}
 	@Override
 	public boolean sonNumerosIguales(String nroCelu) {
