@@ -18,7 +18,7 @@ public class PuntoDeVenta {
 	//@Override
 	public void generarCompraPuntual(Integer cantHoras, String patente) {
 		semCompra.generarCompraPuntual(cantHoras, this);
-		semEstacionamiento.generarCompraPuntual(patente, cantHoras);
+		semEstacionamiento.generarEstacionamientoPuntual(patente, cantHoras);
 	}
 
 	//@Override
