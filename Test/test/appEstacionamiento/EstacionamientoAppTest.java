@@ -16,7 +16,7 @@ import tpIntegrador.semEstacionamiento.SEMEstacionamiento;
 class EstacionamientoAppTest {
 	private SEMEstacionamiento sem;
 	private EstacionamientoApp app; 
-	private Integer celular;
+	private String celular;
 	private String patente;
 	private EstadoMovimiento estado;
 	private ModoApp modo;
@@ -27,7 +27,7 @@ class EstacionamientoAppTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		sem = mock(SEMEstacionamiento.class);
-		celular = 1551468925;
+		celular = "1551468925";
 		patente = "A10ZO";
 		estado = mock(EstadoMovimiento.class);
 		modo = mock(ModoApp.class);
@@ -39,7 +39,7 @@ class EstacionamientoAppTest {
 	@Test
 	void testPodemosManipularYObtenerInformacionDeEstacionamientoApp() {
 		SEMEstacionamiento sem2 = mock(SEMEstacionamiento.class);
-		int celular2 = 1551468925;
+		String celular2 = "1551468925";
 		String patente2 = "A10ZO";
 		EstadoMovimiento estado2 = mock(EstadoMovimiento.class);
 		ModoApp modo2 = mock(ModoApp.class);

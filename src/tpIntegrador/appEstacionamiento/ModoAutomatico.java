@@ -8,13 +8,13 @@ public class ModoAutomatico implements ModoApp {
 
 
 	@Override
-	public void comenzoACaminar(EstacionamientoApp app, String patente, Integer celular) {
+	public void comenzoACaminar(EstacionamientoApp app, String patente, String celular) {
 		app.inicioEstacionamiento(patente, celular);
 		
 	}
 
 	@Override
-	public void comenzoAManejar(EstacionamientoApp app, Integer celular) {
+	public void comenzoAManejar(EstacionamientoApp app, String celular) {
 		app.finEstacionamiento(celular);
 	}
 

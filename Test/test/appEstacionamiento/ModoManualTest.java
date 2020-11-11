@@ -11,7 +11,7 @@ import tpIntegrador.appEstacionamiento.ModoManual;
 class ModoManualTest {
 	private ModoManual modo;
 	private EstacionamientoApp app;
-	private Integer celular;
+	private String celular;
 	private String patente;
 
 
@@ -19,7 +19,7 @@ class ModoManualTest {
 	void setUp() throws Exception {
 		modo = new ModoManual();
 		app = mock(EstacionamientoApp.class);
-		celular = 155023023;
+		celular = "155023023";
 		patente = "A10ZO";		
 	}
 

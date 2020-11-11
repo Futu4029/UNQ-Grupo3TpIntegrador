@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
 class ModoAutomaticoTest {
 	private ModoAutomatico modo;
 	private EstacionamientoApp app;
-	private Integer celular;
+	private String celular;
 	private String patente;
 
 	@BeforeEach
@@ -20,7 +20,7 @@ class ModoAutomaticoTest {
 		
 		modo = new ModoAutomatico();
 		app = mock(EstacionamientoApp.class);
-		celular = 155023023;
+		celular = "155023023";
 		patente = "A10ZO";		
 	}
 

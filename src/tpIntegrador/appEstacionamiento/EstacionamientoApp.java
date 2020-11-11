@@ -5,13 +5,13 @@ import tpIntegrador.semEstacionamiento.*;
 public class EstacionamientoApp implements MovementSensor{
 	
 	private SEMEstacionamiento sem;
-	private Integer celular;
+	private String celular;
 	private String patente;
 	private ModoApp modo;
 	private ModoAlerta alerta;
 	private EstadoMovimiento estadoMovimiento;
 	
-	public EstacionamientoApp(SEMEstacionamiento sem ,String patente, Integer celular, ModoApp modo, ModoAlerta alerta, EstadoMovimiento estadoMovimiento) {
+	public EstacionamientoApp(SEMEstacionamiento sem ,String patente, String celular, ModoApp modo, ModoAlerta alerta, EstadoMovimiento estadoMovimiento) {
 		this.sem = sem;
 		this.celular = celular;
 		this.patente = patente;
@@ -30,11 +30,11 @@ public class EstacionamientoApp implements MovementSensor{
 		this.sem = sem;
 	}
 	
-	public Integer getCelular() {
+	public String getCelular() {
 		return celular;
 	}
 
-	public void setCelular(Integer celular) {
+	public void setCelular(String celular) {
 		this.celular = celular;
 	}
 	
@@ -74,12 +74,12 @@ public class EstacionamientoApp implements MovementSensor{
 
 	//METHODS
 	
-	public void inicioEstacionamiento(String patente, Integer celular) { 
+	public void inicioEstacionamiento(String patente, String celular) { 
 		//se envia el mensaje de inicio a SEM
 		sem.inicioEstacionamiento(patente, celular);
 	}
 	
-	public void finEstacionamiento(Integer celular) {
+	public void finEstacionamiento(String celular) {
 		// se envia el mensaje a sem para que finalice el estacionamiento
 		sem.finEstacionamiento(celular);
 	}

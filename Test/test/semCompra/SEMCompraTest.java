@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import tpIntegrador.celular.ISEMCelular;
 import tpIntegrador.semCompra.Compra;
 import tpIntegrador.semCompra.CompraDeCredito;
 import tpIntegrador.semCompra.CompraPuntual;

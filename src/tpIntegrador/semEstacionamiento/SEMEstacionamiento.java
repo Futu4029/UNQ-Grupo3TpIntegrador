@@ -3,9 +3,11 @@ package tpIntegrador.semEstacionamiento;
 import java.time.LocalTime;
 import java.util.ArrayList;
 
+import tpIntegrador.celular.ISEMCelular;
 import tpIntegrador.estacionamiento.Estacionamiento;
 import tpIntegrador.semSistemaDeAsistencia.ISEMSistemaDeAsistencia;
 import tpIntegrador.semSistemaDeAsistencia.notificacion.Notificacion;
+import tpIntegrador.semSistemaDeAsistencia.notificacion.NotificacionFinEstacionamiento;
 import tpIntegrador.semSistemaDeAsistencia.notificacion.NotificacionInicioEstacionamiento;
 import tpIntegrador.semZona.ISEMZona;
 
@@ -106,6 +108,6 @@ public class SEMEstacionamiento {
 	}
 	
 	public Estacionamiento buscarEstacionamientoVigente(String celular) {
-		this.getEstacionamientos().stream().filter(e -> e.sonNumerosIguales(celular) && e.estaVigente()).findAny().get();
+		return this.getEstacionamientos().stream().filter(e -> e.sonNumerosIguales(celular) && e.estaVigente()).findAny().get();
 	}
 }
