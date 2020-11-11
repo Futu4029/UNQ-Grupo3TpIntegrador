@@ -2,7 +2,7 @@ package tpIntegrador.appEstacionamiento;
 
 public interface ModoAlerta {
 	
-	public void comenzoACaminar();
+	public String comenzoACaminar();
 	
-	public void comenzoAManejar();
+	public String comenzoAManejar();
 }

@@ -14,7 +14,6 @@ public abstract class EstadoMovimiento {
 	}
 
 
-
 	public void setApp(EstacionamientoApp app) {
 		this.app = app;
 	}

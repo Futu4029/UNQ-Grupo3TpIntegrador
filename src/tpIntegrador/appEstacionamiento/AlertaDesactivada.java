@@ -7,15 +7,14 @@ public class AlertaDesactivada implements ModoAlerta {
 	}
 
 	@Override
-	public void comenzoACaminar() {
-		// TODO Auto-generated method stub
-
+	public String comenzoACaminar() {
+		return null;
+		
 	}
 
 	@Override
-	public void comenzoAManejar() {
-		// TODO Auto-generated method stub
-
+	public String comenzoAManejar() {
+		return null;
 	}
 
 }
