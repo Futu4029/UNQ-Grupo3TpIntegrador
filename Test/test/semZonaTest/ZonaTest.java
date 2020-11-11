@@ -8,19 +8,15 @@ import java.util.ArrayList;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import tpIntegrador.semZona.IPuntoGeografico;
-import tpIntegrador.semZona.Zona;
+import tpIntegrador.semZona.*;
 
 class ZonaTest {
 	Zona sut;
 	IPuntoGeografico pg;
-	String puntoV;
 
 	@BeforeEach
 	void setUp() {
 		sut = new Zona("Ricardo");
-		pg = mock(IPuntoGeografico.class);
-		puntoV = "MaxiKiosco";
 		//Una interfaz no se implementa
 		//pero suponemos que es una clase 
 		//que implementa la interfaz
@@ -38,7 +34,7 @@ class ZonaTest {
 	
 	@Test
 	void setPuntosDeVentaTest() {
-		ArrayList<String> puntosDeVenta = new ArrayList<String>();
+		ArrayList<PuntoDeVenta> puntosDeVenta = new ArrayList<PuntoDeVenta>();
 		sut.setPuntosDeVenta(puntosDeVenta);
 		assertEquals(puntosDeVenta, sut.getPuntosDeVenta());
 	}
@@ -50,6 +46,8 @@ class ZonaTest {
 	
 	@Test
 	void registrarPuntoDeVentaTest() {
+		pg = mock(IPuntoGeografico.class);
+		PuntoDeVenta puntoV = mock(PuntoDeVenta.class);
 		sut.registrarPuntoDeVenta(puntoV);
 		assertEquals(1, sut.getPuntosDeVenta().size());
 	}
@@ -62,8 +60,10 @@ class ZonaTest {
 	
 	@Test
 	void contienePuntoDeVentaTest() {
+		pg = mock(IPuntoGeografico.class);
+		PuntoDeVenta puntoV = mock(PuntoDeVenta.class);
 		sut.registrarPuntoDeVenta(puntoV);
-		assertTrue(sut.contienePuntoDeVenta("MaxiKiosco"));
+		assertTrue(sut.contienePuntoDeVenta(puntoV));
 	}
 	
 	@Test

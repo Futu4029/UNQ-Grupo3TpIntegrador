@@ -2,6 +2,8 @@ package tpIntegrador.semCompra;
 
 import java.util.ArrayList;
 
+import tpIntegrador.celular.ISEMCelular;
+
 public class SEMCompra implements ISEMCompra{
 
 	private ArrayList<Compra> compras;
