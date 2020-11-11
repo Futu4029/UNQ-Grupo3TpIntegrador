@@ -134,6 +134,7 @@ public class SEMEstacionamiento {
 		long minutosConsumidos = (e.getHoraFinal().toSecondOfDay() - e.getHoraInicio().toSecondOfDay())*60; 
 		LocalTime horasTotal = LocalTime.of(0, 0).plusMinutes(minutosConsumidos);
 		float costo = minutosConsumidos * this.precioPorMinuto();
+		this.getSemCelular().descontarCredito(celular, costo);
 		return new NotificacionFinEstacionamiento(e.getHoraInicio(), horaFin, horasTotal, costo);
 	}
 	

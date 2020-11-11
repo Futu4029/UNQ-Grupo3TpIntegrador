@@ -1,6 +1,5 @@
 package tpIntegrador.semZona;
 
-import tpIntegrador.celular.SEMCelular;
 import tpIntegrador.semCompra.SEMCompra;
 import tpIntegrador.semEstacionamiento.SEMEstacionamiento;
 
@@ -10,7 +9,7 @@ public class PuntoDeVenta {
 	private SEMEstacionamiento semEstacionamiento;
 
 	
-	public PuntoDeVenta(SEMCompra semCompra, SEMEstacionamiento semEstacionamiento, SEMCelular semCelular) {
+	public PuntoDeVenta(SEMCompra semCompra, SEMEstacionamiento semEstacionamiento) {
 		this.semCompra = semCompra;
 		this.semEstacionamiento= semEstacionamiento;
 	}
