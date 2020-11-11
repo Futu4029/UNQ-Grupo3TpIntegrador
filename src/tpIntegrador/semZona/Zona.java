@@ -3,17 +3,18 @@ package tpIntegrador.semZona;
 import java.util.ArrayList;
 
 public class Zona {
-	public ArrayList<String> puntosDeVenta;
+	public ArrayList<PuntoDeVenta> puntosDeVenta;
 	public String inspector;
 	public ArrayList<IPuntoGeografico> puntosGeograficos;
 	
 	public Zona(String inspector) {
 		this.inspector = inspector;
-		this.puntosDeVenta = new ArrayList<String>();
+		this.puntosDeVenta = new ArrayList<PuntoDeVenta>();
 		this.puntosGeograficos = new ArrayList<IPuntoGeografico>();
 	}
 	//Setters y Getters
-	public ArrayList<String> getPuntosDeVenta() {
+
+	public ArrayList<PuntoDeVenta> getPuntosDeVenta() {
 		return puntosDeVenta;
 	}
 
@@ -25,7 +26,7 @@ public class Zona {
 		return puntosGeograficos;
 	}
 
-	public void setPuntosDeVenta(ArrayList<String> puntosDeVenta) {
+	public void setPuntosDeVenta(ArrayList<PuntoDeVenta> puntosDeVenta) {
 		this.puntosDeVenta = puntosDeVenta;
 	}
 
@@ -37,18 +38,19 @@ public class Zona {
 		this.puntosGeograficos = puntosGeograficos;
 	}
 	
-	public void registrarPuntoDeVenta(String puntoDeVenta) {
+	public void registrarPuntoDeVenta(PuntoDeVenta puntoDeVenta) {
 		this.getPuntosDeVenta().add(puntoDeVenta);
 	}
 	
 	public void registrarPuntoGeografico(IPuntoGeografico puntoGeografico) {
 		this.getPuntosGeograficos().add(puntoGeografico);
 	}
-	// se le pregunta a su colección si contiene un punto de venta
-	public boolean contienePuntoDeVenta(String puntoDeVenta) {
+	// se le pregunta a su colecciï¿½n si contiene un punto de venta
+  
+	public boolean contienePuntoDeVenta(PuntoDeVenta puntoDeVenta) {
 		return this.getPuntosDeVenta().contains(puntoDeVenta);
 	}
-	// se le pregunta a su colección si contiene un punto geografico
+	// se le pregunta a su colecciï¿½n si contiene un punto geografico
 	public boolean contienePuntoGeografico(IPuntoGeografico puntoGeografico) {
 		return this.getPuntosGeograficos().contains(puntoGeografico);
 	}
