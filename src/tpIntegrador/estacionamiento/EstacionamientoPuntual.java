@@ -29,5 +29,10 @@ public class EstacionamientoPuntual extends Estacionamiento{
 	public boolean sonNumerosIguales(String nroCelu) {
 		return false;
 	}
+
+	@Override
+	public boolean estaVigente() {
+		return this.getHoraFinal().isAfter(LocalTime.now());
+	}
 	
 }

@@ -7,9 +7,9 @@ import static org.mockito.Mockito.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import tpIntegrador.Zona;
+import tpIntegrador.semZona.*;
 import tpIntegrador.appInspector.AppInspector;
-import tpIntegrador.estacionamiento.ISEMEstacionamiento;
+import tpIntegrador.semEstacionamiento.*;
 import tpIntegrador.semControl.ISEMControl;
 import tpIntegrador.semControl.Infraccion;
 

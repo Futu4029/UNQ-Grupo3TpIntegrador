@@ -6,11 +6,12 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
-import tpIntegrador.SEMEstacionamiento;
+
 import tpIntegrador.appEstacionamiento.EstacionamientoApp;
 import tpIntegrador.appEstacionamiento.EstadoMovimiento;
 import tpIntegrador.appEstacionamiento.ModoAlerta;
 import tpIntegrador.appEstacionamiento.ModoApp;
+import tpIntegrador.semEstacionamiento.SEMEstacionamiento;
 
 class EstacionamientoAppTest {
 	private SEMEstacionamiento sem;

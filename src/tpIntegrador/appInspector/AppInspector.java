@@ -3,8 +3,8 @@ package tpIntegrador.appInspector;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-import tpIntegrador.Zona;
-import tpIntegrador.estacionamiento.ISEMEstacionamiento;
+import tpIntegrador.semZona.*;
+import tpIntegrador.semEstacionamiento.*;
 import tpIntegrador.semControl.ISEMControl;
 import tpIntegrador.semControl.Infraccion;
 

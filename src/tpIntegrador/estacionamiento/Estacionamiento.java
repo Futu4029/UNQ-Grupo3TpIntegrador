@@ -7,14 +7,12 @@ public abstract class Estacionamiento {
 	private LocalTime horaInicio;
 	private LocalTime horaFinal;
 	private String patente;
-	private boolean estaVigente;
 	
 	public Estacionamiento(String patente, LocalTime horaFinal) {
 		super();
 		this.setPatente(patente);
 		this.setHoraInicio(LocalTime.now());
 		this.setHoraFinal(horaFinal);
-		
 	}
 	
 	public LocalTime getHoraInicio() {
@@ -45,14 +43,7 @@ public abstract class Estacionamiento {
 		return this.patente == patente;
 	}
 
-	public boolean estaVigente() {
-		return estaVigente;
-	}
-
-	public void setEstaVigente(boolean estaVigente) {
-		this.estaVigente = estaVigente;
-	}
-	
+	public abstract boolean estaVigente();
 	public abstract String getCelular();
 	public abstract boolean sonNumerosIguales(String nroCelu);
 

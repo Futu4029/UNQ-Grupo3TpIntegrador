@@ -3,6 +3,8 @@ package test.semZonaTest;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
+import java.util.ArrayList;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -35,6 +37,13 @@ class ZonaTest {
 	}
 	
 	@Test
+	void setPuntosDeVentaTest() {
+		ArrayList<String> puntosDeVenta = new ArrayList<String>();
+		sut.setPuntosDeVenta(puntosDeVenta);
+		assertEquals(puntosDeVenta, sut.getPuntosDeVenta());
+	}
+	
+	@Test
 	void getPuntosGeograficosTest() {
 		assertEquals(0, sut.getPuntosGeograficos().size());
 	}
@@ -62,4 +71,20 @@ class ZonaTest {
 		sut.registrarPuntoGeografico(pg);
 		assertTrue(sut.contienePuntoGeografico(pg));
 	}
+	
+	
+	@Test
+	void setInspectorTest() {
+		// el que estaba seteaedo en el setup era Ricardo
+		sut.setInspector("René");
+		assertEquals("René", sut.getInspector());
+	}
+	
+	@Test
+	void getPoligonoTest() {
+		ArrayList<IPuntoGeografico> puntosGeograficos = new ArrayList<IPuntoGeografico>();
+		sut.setPuntosGeograficos(puntosGeograficos);
+		assertEquals(puntosGeograficos, sut.getPuntosGeograficos());
+	}
+	
 }
