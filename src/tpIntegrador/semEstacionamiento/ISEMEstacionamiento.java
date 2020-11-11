@@ -4,6 +4,7 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 
 import tpIntegrador.estacionamiento.Estacionamiento;
+import tpIntegrador.semSistemaDeAsistencia.notificacion.Notificacion;
 
 public interface ISEMEstacionamiento {
 	public ArrayList<Estacionamiento> getEstacionamientos(); 

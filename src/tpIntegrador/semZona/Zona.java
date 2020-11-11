@@ -12,7 +12,7 @@ public class Zona {
 		this.puntosDeVenta = new ArrayList<String>();
 		this.puntosGeograficos = new ArrayList<IPuntoGeografico>();
 	}
-
+	//Setters y Getters
 	public ArrayList<String> getPuntosDeVenta() {
 		return puntosDeVenta;
 	}
@@ -33,7 +33,7 @@ public class Zona {
 		this.inspector = inspector;
 	}
 
-	public void setPoligono(ArrayList<IPuntoGeografico> puntosGeograficos) {
+	public void setPuntosGeograficos(ArrayList<IPuntoGeografico> puntosGeograficos) {
 		this.puntosGeograficos = puntosGeograficos;
 	}
 	
@@ -44,11 +44,11 @@ public class Zona {
 	public void registrarPuntoGeografico(IPuntoGeografico puntoGeografico) {
 		this.getPuntosGeograficos().add(puntoGeografico);
 	}
-	
+	// se le pregunta a su colección si contiene un punto de venta
 	public boolean contienePuntoDeVenta(String puntoDeVenta) {
 		return this.getPuntosDeVenta().contains(puntoDeVenta);
 	}
-	
+	// se le pregunta a su colección si contiene un punto geografico
 	public boolean contienePuntoGeografico(IPuntoGeografico puntoGeografico) {
 		return this.getPuntosGeograficos().contains(puntoGeografico);
 	}

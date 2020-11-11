@@ -1,6 +1,6 @@
 package tpIntegrador.appEstacionamiento;
 
-import tpIntegrador.SEMEstacionamiento;
+import tpIntegrador.semEstacionamiento.*;
 
 public class EstacionamientoApp implements MovementSensor{
 	

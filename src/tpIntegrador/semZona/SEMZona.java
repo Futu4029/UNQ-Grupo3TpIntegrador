@@ -9,6 +9,7 @@ public class SEMZona {
 		setZonas(new ArrayList<Zona>());
 	}
 
+	//Setters y Getters
 	public ArrayList<Zona> getZonas() {
 		return zonas;
 	}
@@ -17,6 +18,7 @@ public class SEMZona {
 		this.zonas = zonas;
 	}
 	
+	//se le pasa un punto geografico y le pregunta a cada zona si le pertenece
 	public boolean perteneceAZona(IPuntoGeografico pg) {
 		return this.getZonas().stream().anyMatch(z -> z.contienePuntoGeografico(pg));
 	}

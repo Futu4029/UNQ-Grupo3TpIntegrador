@@ -3,7 +3,7 @@ package tpIntegrador.semControl;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-import tpIntegrador.Zona;
+import tpIntegrador.semZona.*;
 
 public class Infraccion {
 

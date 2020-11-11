@@ -10,7 +10,7 @@ import static org.mockito.Mockito.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import tpIntegrador.Zona;
+import tpIntegrador.semZona.*;
 import tpIntegrador.semControl.Infraccion;
 
 class InfraccionTest {
