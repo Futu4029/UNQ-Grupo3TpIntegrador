@@ -12,8 +12,8 @@ public class Compra {
 	private LocalDate fecha;
 	private LocalTime hora;
 	
-	public Compra(PuntoDeVenta puntoDeVenta) {
-		this.setNroControl(this.getNroControl() +1);
+	public Compra(PuntoDeVenta puntoDeVenta, Integer nroControl) {
+		this.setNroControl(nroControl);
 		this.puntoDeVenta = puntoDeVenta;
 		this.fecha = LocalDate.now(); 
 		this.hora = LocalTime.now();

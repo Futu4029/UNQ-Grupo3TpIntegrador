@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import tpIntegrador.semCompra.CompraDeCredito;
+import tpIntegrador.semCompra.CompraVirtual;
 import tpIntegrador.semCompra.SEMCompra;
 import tpIntegrador.semZona.PuntoDeVenta;
 
@@ -37,6 +37,6 @@ class PuntoDeVentaTest {
 	void recargarCredito() {
 		puntoDeVenta.comprarCredito("1122334455", 150);
 		
-		verify(semCompra).registrar(any(CompraDeCredito.class));
+		verify(semCompra).registrar(any(CompraVirtual.class));
 	}
 }

@@ -26,7 +26,6 @@ public class SEMCelular implements ISEMCelular {
     public void recargar(String nroCelular, float monto) {
     	float recarga = (this.getCelulares().get(nroCelular));
     	this.getCelulares().remove(nroCelular);
-    	
 		this.getCelulares().put(nroCelular, recarga + monto);
     }
 

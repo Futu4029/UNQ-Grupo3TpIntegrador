@@ -6,20 +6,20 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import tpIntegrador.semCompra.CompraDeCredito;
+import tpIntegrador.semCompra.CompraVirtual;
 import tpIntegrador.semZona.PuntoDeVenta;
 
 import static org.mockito.Mockito.mock;
 
 class CompraDeCreditoTest {
 
-	private CompraDeCredito compra;
+	private CompraVirtual compra;
 	private PuntoDeVenta puntoDeVenta;
 	
 	@BeforeEach
 	public void setUp() {
 		puntoDeVenta = mock(PuntoDeVenta.class);
-		compra = new CompraDeCredito(puntoDeVenta, 200, "1122334455");
+		compra = new CompraVirtual(puntoDeVenta, 200, "1122334455");
 	}
 	
 	@Test

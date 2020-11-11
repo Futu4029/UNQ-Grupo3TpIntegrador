@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import tpIntegrador.celular.ISEMCelular;
 import tpIntegrador.estacionamiento.Estacionamiento;
+import tpIntegrador.estacionamiento.EstacionamientoPuntual;
 import tpIntegrador.semSistemaDeAsistencia.ISEMSistemaDeAsistencia;
 import tpIntegrador.semSistemaDeAsistencia.notificacion.Notificacion;
 import tpIntegrador.semSistemaDeAsistencia.notificacion.NotificacionFinEstacionamiento;
@@ -85,6 +86,22 @@ public class SEMEstacionamiento {
 
 	public void setPrecioPorHora(float precioPorHora) {
 		this.precioPorHora = precioPorHora;
+	}
+	
+	public void registrar(Estacionamiento e) {
+		this.getEstacionamientos().add(e);
+	}
+	
+	public void generarCompraPuntual(String patente, Integer cantHoras) {
+		LocalTime horaFinal = LocalTime.now().plusHours(cantHoras);
+		if(this.estaEnFranjaHoraria(horaFinal)) {
+			EstacionamientoPuntual e = new EstacionamientoPuntual(patente, horaFinal, cantHoras);
+			this.registrar(e);
+		}else {
+			horaFinal = LocalTime.of(20, 00);
+			EstacionamientoPuntual e = new EstacionamientoPuntual(patente, horaFinal, cantHoras);
+			this.registrar(e);
+		}
 	}
 	
 	public Notificacion inicioEstacionamiento(String patente, String celular) {

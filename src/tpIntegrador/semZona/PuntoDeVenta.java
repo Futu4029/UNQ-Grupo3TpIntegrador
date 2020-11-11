@@ -1,31 +1,28 @@
 package tpIntegrador.semZona;
 
-import tpIntegrador.semCompra.CompraDeCredito;
-import tpIntegrador.semCompra.CompraPuntual;
-import tpIntegrador.semCompra.ISEMCompra;
+import tpIntegrador.celular.SEMCelular;
 import tpIntegrador.semCompra.SEMCompra;
+import tpIntegrador.semEstacionamiento.SEMEstacionamiento;
 
-public class PuntoDeVenta implements ISEMCompra{
+public class PuntoDeVenta {
 	
 	private SEMCompra semCompra;
+	private SEMEstacionamiento semEstacionamiento;
+
 	
-	public PuntoDeVenta(SEMCompra semCompra) {
+	public PuntoDeVenta(SEMCompra semCompra, SEMEstacionamiento semEstacionamiento, SEMCelular semCelular) {
 		this.semCompra = semCompra;
+		this.semEstacionamiento= semEstacionamiento;
 	}
 
-	@Override
-	public void generarCompraPuntual(Integer cantHoras) {
-		CompraPuntual compraPuntual = new CompraPuntual(this, cantHoras);
-		compraPuntual.setNroControl(semCompra.getProxNroControl());
-		semCompra.setProxNroControl() += 1;
-		semCompra.registrar(compraPuntual);
+	//@Override
+	public void generarCompraPuntual(Integer cantHoras, String patente) {
+		semCompra.generarCompraPuntual(cantHoras, this);
+		semEstacionamiento.generarCompraPuntual(patente, cantHoras);
 	}
 
-	@Override
-	public void comprarCredito(String nroCelular, float monto) {
-		CompraDeCredito compra = new CompraDeCredito(this, monto, nroCelular);
-		semCompra.registrar(compra);
-		semCompra.semCelular.compra(nroCelular, monto); 
-		
+	//@Override
+	public void generarRecargaDeCredito(String nroCelular, float monto) {
+		semCompra.comprarCredito(nroCelular, monto, this);
 	}
 }

@@ -6,8 +6,8 @@ public class CompraPuntual extends Compra {
 
 	private Integer cantidadDeHoras;
 	
-	public CompraPuntual(PuntoDeVenta puntoDeVenta, Integer horas) {
-		super(puntoDeVenta);
+	public CompraPuntual(PuntoDeVenta puntoDeVenta, Integer horas, Integer nroControl) {
+		super(puntoDeVenta, nroControl);
 		this.cantidadDeHoras = horas;
 	}
 

@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import tpIntegrador.celular.ISEMCelular;
 import tpIntegrador.semCompra.Compra;
-import tpIntegrador.semCompra.CompraDeCredito;
+import tpIntegrador.semCompra.CompraVirtual;
 import tpIntegrador.semCompra.CompraPuntual;
 import tpIntegrador.semCompra.SEMCompra;
 
@@ -31,7 +31,7 @@ class SEMCompraTest {
 	@Test
 	void RegistrarCompraEnSuColeccion() {
 		Compra compra1 = mock(CompraPuntual.class);
-		Compra compra2 = mock(CompraDeCredito.class);
+		Compra compra2 = mock(CompraVirtual.class);
 		
 		semCompra.registrar(compra1);
 		assertEquals(1, semCompra.getCompras().size());
