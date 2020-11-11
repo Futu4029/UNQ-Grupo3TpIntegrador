@@ -8,12 +8,6 @@ import tpIntegrador.semSistemaDeAsistencia.notificacion.Notificacion;
 
 public interface ISEMEstacionamiento {
 	public ArrayList<Estacionamiento> getEstacionamientos(); 
-	public LocalTime getHoraInicio();
-	public LocalTime getHoraFinal();
-	public float getPrecioPorHora();
-	public void setHoraInicio(LocalTime horaInicio);
-	public void setHoraFinal(LocalTime horaFinal);
-	public void setPrecioPorHora(float precioPorHora);
 	public boolean estaVigentePatente(String patente);
 	public boolean estaVigenteCelular(String nroCelular);
 	public Estacionamiento buscarEstacionamientoVigente(String nroCelular);

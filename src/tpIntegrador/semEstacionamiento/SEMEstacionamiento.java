@@ -3,13 +3,16 @@ package tpIntegrador.semEstacionamiento;
 import java.time.LocalTime;
 import java.util.ArrayList;
 
+import tpIntegrador.celular.Celular;
 import tpIntegrador.celular.ISEMCelular;
 import tpIntegrador.estacionamiento.Estacionamiento;
 import tpIntegrador.estacionamiento.EstacionamientoPuntual;
+import tpIntegrador.estacionamiento.EstacionamientoVirtual;
 import tpIntegrador.semSistemaDeAsistencia.ISEMSistemaDeAsistencia;
 import tpIntegrador.semSistemaDeAsistencia.notificacion.Notificacion;
 import tpIntegrador.semSistemaDeAsistencia.notificacion.NotificacionFinEstacionamiento;
 import tpIntegrador.semSistemaDeAsistencia.notificacion.NotificacionInicioEstacionamiento;
+import tpIntegrador.semSistemaDeAsistencia.notificacion.NotificacionSaldoInsuficiente;
 import tpIntegrador.semZona.ISEMZona;
 
 public class SEMEstacionamiento {
@@ -95,19 +98,24 @@ public class SEMEstacionamiento {
 	public void generarCompraPuntual(String patente, Integer cantHoras) {
 		LocalTime horaFinal = LocalTime.now().plusHours(cantHoras);
 		if(this.estaEnFranjaHoraria(horaFinal)) {
-			EstacionamientoPuntual e = new EstacionamientoPuntual(patente, horaFinal, cantHoras);
-			this.registrar(e);
+			this.registrar(new EstacionamientoPuntual(patente, horaFinal, cantHoras));
 		}else {
 			horaFinal = LocalTime.of(20, 00);
-			EstacionamientoPuntual e = new EstacionamientoPuntual(patente, horaFinal, cantHoras);
-			this.registrar(e);
+			this.registrar(new EstacionamientoPuntual(patente, horaFinal, cantHoras));
 		}
 	}
 	
 	public Notificacion inicioEstacionamiento(String patente, String celular) {
-		return new NotificacionInicioEstacionamiento(horaInicio, horaMaxima);
+		if(!(semCelular.consultarCredito(celular)>0)){
+			return new NotificacionSaldoInsuficiente();
+		}else {
+			
+			this.registrar(new EstacionamientoVirtual(patente, celular));
+			return new NotificacionInicioEstacionamiento(horaInicio, horaMaxima);
+		}
+		
 	}
-	
+
 	public Notificacion finEstacionamiento(String celular) {
 		return new NotificacionFinEstacionamiento(horaInicio, horaFin, horasTotal, costo);
 	}

@@ -1,6 +1,7 @@
 package tpIntegrador.appEstacionamiento;
 
 import tpIntegrador.semEstacionamiento.*;
+import tpIntegrador.semSistemaDeAsistencia.notificacion.Notificacion;
 
 public class EstacionamientoApp implements MovementSensor{
 	
@@ -74,14 +75,14 @@ public class EstacionamientoApp implements MovementSensor{
 
 	//METHODS
 	
-	public void inicioEstacionamiento(String patente, String celular) { 
+	public Notificacion inicioEstacionamiento(String patente, String celular) { 
 		//se envia el mensaje de inicio a SEM
-		sem.inicioEstacionamiento(patente, celular);
+		return sem.inicioEstacionamiento(patente, celular);
 	}
 	
-	public void finEstacionamiento(String celular) {
+	public Notificacion finEstacionamiento(String celular) {
 		// se envia el mensaje a sem para que finalice el estacionamiento
-		sem.finEstacionamiento(celular);
+		return sem.finEstacionamiento(celular);
 	}
 
 
