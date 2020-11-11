@@ -20,7 +20,7 @@ class EstadoManejandoTest {
 		app = mock(EstacionamientoApp.class);
 		manejando = new EstadoManejado(app);
 	}
-
+	
 	@Test
 	void testManejandoNoHaceNada() {
 		
