@@ -1,8 +1,8 @@
 package tpIntegrador.appEstacionamiento;
 
-public class EstadoManejado extends EstadoMovimiento {
+public class EstadoManejando extends EstadoMovimiento {
 
-	public EstadoManejado(EstacionamientoApp app) {
+	public EstadoManejando(EstacionamientoApp app) {
 		super(app);
 	}
 

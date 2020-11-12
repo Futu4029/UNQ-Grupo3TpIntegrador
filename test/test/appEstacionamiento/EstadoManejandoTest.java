@@ -8,17 +8,17 @@ import org.junit.jupiter.api.Test;
 
 import tpIntegrador.appEstacionamiento.EstadoCaminando;
 import tpIntegrador.appEstacionamiento.EstacionamientoApp;
-import tpIntegrador.appEstacionamiento.EstadoManejado;
+import tpIntegrador.appEstacionamiento.EstadoManejando;
 
 class EstadoManejandoTest {
 	private EstacionamientoApp app;
-	private EstadoManejado manejando;
+	private EstadoManejando manejando;
 	
 
 	@BeforeEach
 	void setUp() throws Exception {
 		app = mock(EstacionamientoApp.class);
-		manejando = new EstadoManejado(app);
+		manejando = new EstadoManejando(app);
 	}
 	
 	@Test
@@ -26,7 +26,7 @@ class EstadoManejandoTest {
 		
 		manejando.manejando();
 		
-		verify(app, never()).setEstadoMovimiento(any(EstadoManejado.class));
+		verify(app, never()).setEstadoMovimiento(any(EstadoManejando.class));
 		verify(app,never()).comenzoACaminar();
 	}
 	

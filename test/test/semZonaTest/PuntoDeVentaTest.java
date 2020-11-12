@@ -3,8 +3,8 @@ package test.semZonaTest;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import tpIntegrador.semCompra.SEMCompra;
-import tpIntegrador.semEstacionamiento.SEMEstacionamiento;
+import tpIntegrador.semCompra.ISEMCompra;
+import tpIntegrador.semEstacionamiento.ISEMEstacionamiento;
 import tpIntegrador.semZona.PuntoDeVenta;
 
 import static org.mockito.Mockito.mock;
@@ -14,15 +14,15 @@ class PuntoDeVentaTest {
     //SUT
 	private PuntoDeVenta puntoDeVenta;
 	//DOC
-	private SEMCompra semCompra;
-	private SEMEstacionamiento semEstacionamiento;
+	private ISEMCompra semCompra;
+	private ISEMEstacionamiento semEstacionamiento;
 	private String patente;
 	
 	@BeforeEach
 	public void setUp() {
 		patente = "ABD123";
-		semCompra = mock(SEMCompra.class);
-		semEstacionamiento = mock(SEMEstacionamiento.class);
+		semCompra = mock(ISEMCompra.class);
+		semEstacionamiento = mock(ISEMEstacionamiento.class);
 		puntoDeVenta = new PuntoDeVenta(semCompra, semEstacionamiento);
 	}
 		
