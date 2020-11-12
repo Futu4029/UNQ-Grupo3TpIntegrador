@@ -42,11 +42,14 @@ public abstract class Estacionamiento {
 	public boolean sonPatentesIguales(String patente) {
 		return this.patente == patente;
 	}
-
+	//abstract methods
 	public abstract boolean estaVigente();
 	public abstract String getCelular();
 	public abstract boolean sonNumerosIguales(String nroCelu);
-	public abstract void finalizar(LocalTime horaFin);
-	public abstract void actualizarHoraFin(LocalTime horaFin);
+
+	
+	//hook methods
+	public void finalizar(LocalTime horaFin) {}
+	public void actualizarHoraFin(LocalTime horaFin) {}
 	
 }
