@@ -1,6 +1,6 @@
 package tpIntegrador.semSistemaDeAsistencia.notificacion;
 
-public class NotificacionConsultaCredito {
+public class NotificacionConsultaCredito extends Notificacion{
 	float saldoDisponible;
 	
 	public NotificacionConsultaCredito(float saldoDisponible) {

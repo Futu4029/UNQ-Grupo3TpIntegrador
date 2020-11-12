@@ -2,16 +2,16 @@ package tpIntegrador.semCompra;
 
 import java.util.ArrayList;
 
-import tpIntegrador.celular.SEMCelular;
+import tpIntegrador.celular.ISEMCelular;
 import tpIntegrador.semZona.PuntoDeVenta;
 
 public class SEMCompra implements ISEMCompra{
 
 	private ArrayList<Compra> compras;
-	private SEMCelular semCelular;
+	private ISEMCelular semCelular;
 	private Integer nroControl;
 	
-	public SEMCompra(SEMCelular semCelular) {
+	public SEMCompra(ISEMCelular semCelular) {
 		this.compras = new ArrayList<Compra>();
 		this.semCelular =  semCelular;
 		this.nroControl = 0; 
@@ -21,7 +21,7 @@ public class SEMCompra implements ISEMCompra{
 		return compras;
 	}
 	
-	public SEMCelular getSemCelular() {
+	public ISEMCelular getSemCelular() {
 		return semCelular;
 	}
 

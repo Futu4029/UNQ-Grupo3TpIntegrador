@@ -1,23 +1,23 @@
 package tpIntegrador.semZona;
 
-import tpIntegrador.semCompra.SEMCompra;
-import tpIntegrador.semEstacionamiento.SEMEstacionamiento;
+import tpIntegrador.semCompra.ISEMCompra;
+import tpIntegrador.semEstacionamiento.ISEMEstacionamiento;
 
 public class PuntoDeVenta {
 	
-	private SEMCompra semCompra;
-	private SEMEstacionamiento semEstacionamiento;
+	private ISEMCompra semCompra;
+	private ISEMEstacionamiento semEstacionamiento;
 
-	public PuntoDeVenta(SEMCompra semCompra, SEMEstacionamiento semEstacionamiento) {
+	public PuntoDeVenta(ISEMCompra semCompra, ISEMEstacionamiento semEstacionamiento) {
 		this.semCompra = semCompra;
 		this.semEstacionamiento= semEstacionamiento;
 	}
 
-	public SEMCompra getSemCompra() {
+	public ISEMCompra getSemCompra() {
 		return semCompra;
 	}
 
-	public SEMEstacionamiento getSemEstacionamiento() {
+	public ISEMEstacionamiento getSemEstacionamiento() {
 		return semEstacionamiento;
 	}
 

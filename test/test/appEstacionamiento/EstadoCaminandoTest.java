@@ -7,7 +7,7 @@ import static org.mockito.Mockito.*;
 
 import tpIntegrador.appEstacionamiento.EstadoCaminando;
 import tpIntegrador.appEstacionamiento.EstacionamientoApp;
-import tpIntegrador.appEstacionamiento.EstadoManejado;
+import tpIntegrador.appEstacionamiento.EstadoManejando;
 
 class EstadoCaminandoTest {
 	private EstacionamientoApp app;
@@ -35,7 +35,7 @@ class EstadoCaminandoTest {
 	void testManejandoCambiaEstadoYEnviaMensajeComenzoAManejar() {
 		caminando.manejando();
 		
-		verify(app).setEstadoMovimiento(any(EstadoManejado.class));
+		verify(app).setEstadoMovimiento(any(EstadoManejando.class));
 		verify(app).comenzoAManejar();
 	}
 }

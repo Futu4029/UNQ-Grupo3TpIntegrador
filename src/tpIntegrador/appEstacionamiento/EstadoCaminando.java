@@ -8,7 +8,7 @@ public class EstadoCaminando extends EstadoMovimiento {
 
 	@Override
 	public void manejando() {
-		this.getApp().setEstadoMovimiento(new EstadoManejado(this.getApp()));
+		this.getApp().setEstadoMovimiento(new EstadoManejando(this.getApp()));
 		this.getApp().comenzoAManejar();
 	}
 
