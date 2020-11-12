@@ -38,4 +38,8 @@ public class Compra {
 	public LocalTime getHora() {
 		return this.hora;
 	}
+	
+	public void setHora(LocalTime hora) {
+		this.hora = hora;
+	}
 }

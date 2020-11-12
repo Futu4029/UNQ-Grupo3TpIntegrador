@@ -1,5 +1,6 @@
 package test.semCompra;
 
+import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -35,6 +36,15 @@ class SEMCompraTest {
 	void testConstructor() {
 		assertEquals(0, semCompra.getCompras().size());
 		assertEquals(0, semCompra.getNroControl());
+		assertEquals(0, semCompra.getSemCelular());
+	}
+	
+	@Test
+	void contieneCompra() {
+		Compra compra = mock(CompraPuntual.class);
+		semCompra.registrar(compra);
+		assertEquals(1, semCompra.getCompras().size());
+		assertTrue(semCompra.contieneCompra(compra));
 	}
 	
 	@Test

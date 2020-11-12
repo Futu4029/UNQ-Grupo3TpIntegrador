@@ -41,8 +41,8 @@ public class SEMCompra implements ISEMCompra{
 		this.setNroControl(nroControl+1);
 	}
 	
-	public void contieneCompra(Compra compra) {
-		this.getCompras().contains(compra);
+	public Boolean contieneCompra(Compra compra) {
+		return this.getCompras().contains(compra);
 	}
 	
 	//@Override

@@ -18,6 +18,7 @@ class SEMCelularTest {
 		semCelular.agregar("1122334455", 100f);
 		semCelular.agregar("5544332211", 50f);
 		semCelular.agregar("6677889900", 300f);
+		
 	}
 	
 	@Test
@@ -28,6 +29,7 @@ class SEMCelularTest {
 	@Test
 	void consultarCredito() {
 		assertEquals(300, semCelular.consultarCredito("6677889900"));
+		assertEquals(0, semCelular.consultarCredito("1111111111"));
 	}
 	
 	@Test
