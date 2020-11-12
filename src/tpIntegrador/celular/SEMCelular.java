@@ -14,7 +14,6 @@ public class SEMCelular implements ISEMCelular {
 		return celulares;
 	}
     
-	@Override
     public float consultarCredito(String nroCelular) {
 		float credito = 
 				this.getCelulares().containsKey(nroCelular)
@@ -23,20 +22,31 @@ public class SEMCelular implements ISEMCelular {
 				return credito;
     }
     
-    public void recargar(String nroCelular, float monto) {
-    	float recarga = (this.getCelulares().get(nroCelular));
+    public void recargar(String nroCelular, float montoARecargar) {
+    	float valor = (this.getCelulares().get(nroCelular));
+    	float montoCambiado = valor + montoARecargar;
     	this.getCelulares().remove(nroCelular);
-		this.getCelulares().put(nroCelular, recarga + monto);
+		this.agregar(nroCelular, montoCambiado);
     }
+    
+    public void descontarCredito(String nroCelular, float montoADescontar) {
+    	float valor = (this.getCelulares().get(nroCelular));
+    	float montoCambiado = valor - montoADescontar;
+    	this.getCelulares().remove(nroCelular);
+    	this.agregar(nroCelular, montoCambiado);
+	}
 
-	@Override
 	public void agregar(String nroCelular, float credito) {
 		this.celulares.put(nroCelular, credito);
 	}
 
-	@Override
 	public Boolean tieneCreditoSuficiente(String nroCelular, float creditoNecesitado) {
 		float valor = this.getCelulares().get(nroCelular);
 		return creditoNecesitado >= valor;
 	}	
+	
+	public Boolean contieneRecargaRealizadaDe(String nroCelular) {
+		return this.getCelulares().containsKey(nroCelular);
+		
+	}
 }

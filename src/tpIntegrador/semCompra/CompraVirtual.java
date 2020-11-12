@@ -7,8 +7,8 @@ public class CompraVirtual extends Compra{
 	private float monto;
 	private String numeroCelular;
 	
-	public CompraVirtual(PuntoDeVenta puntoDeVenta, float monto, String nroCelular, Integer nroControl) {
-		super(puntoDeVenta, nroControl);
+	public CompraVirtual(Integer nroControl, PuntoDeVenta puntoDeVenta, float monto, String nroCelular) {
+		super(nroControl, puntoDeVenta);
 		this.monto = monto;
 		this.numeroCelular = nroCelular;
 	}
