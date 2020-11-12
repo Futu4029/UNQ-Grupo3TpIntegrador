@@ -1,4 +1,4 @@
-package tpIntegrador.celular;
+package tpIntegrador.semCelular;
 
 import java.util.HashMap;
 

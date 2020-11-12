@@ -2,7 +2,7 @@ package tpIntegrador.semCompra;
 
 import java.util.ArrayList;
 
-import tpIntegrador.celular.ISEMCelular;
+import tpIntegrador.semCelular.ISEMCelular;
 import tpIntegrador.semZona.PuntoDeVenta;
 
 public class SEMCompra implements ISEMCompra{

@@ -3,10 +3,10 @@ package tpIntegrador.semEstacionamiento;
 import java.time.LocalTime;
 import java.util.ArrayList;
 
-import tpIntegrador.celular.ISEMCelular;
 import tpIntegrador.estacionamiento.Estacionamiento;
 import tpIntegrador.estacionamiento.EstacionamientoPuntual;
 import tpIntegrador.estacionamiento.EstacionamientoVirtual;
+import tpIntegrador.semCelular.ISEMCelular;
 import tpIntegrador.semSistemaDeAsistencia.ISEMSistemaDeAsistencia;
 import tpIntegrador.semSistemaDeAsistencia.notificacion.Notificacion;
 import tpIntegrador.semSistemaDeAsistencia.notificacion.NotificacionFinEstacionamiento;
@@ -21,7 +21,7 @@ public class SEMEstacionamiento {
 	ISEMCelular semCelular;
 	ISEMZona semZona;
 	ISEMSistemaDeAsistencia semSistemaDeAsistencia;
-	long precioPorHora;
+	float precioPorHora;
 	
 	public SEMEstacionamiento (ISEMCelular semCelular, ISEMZona semZona, 
 							   ISEMSistemaDeAsistencia semSistemaDeAsistencia, long precioPorHora){
@@ -35,31 +35,31 @@ public class SEMEstacionamiento {
 	}
 	//getters y setters
 	public ArrayList<Estacionamiento> getEstacionamientos() {
-		return estacionamientos;
+		return this.estacionamientos;
 	}
 
 	public LocalTime getHoraInicioFranja() {
-		return horaInicioFranja;
+		return this.horaInicioFranja;
 	}
 
 	public LocalTime getHoraFinalFranja() {
-		return horaFinalFranja;
+		return this.horaFinalFranja;
 	}
 
 	public ISEMCelular getSemCelular() {
-		return semCelular;
+		return this.semCelular;
 	}
 
 	public ISEMZona getSemZona() {
-		return semZona;
+		return this.semZona;
 	}
 
 	public ISEMSistemaDeAsistencia getSemSistemaDeAsistencia() {
-		return semSistemaDeAsistencia;
+		return this.semSistemaDeAsistencia;
 	}
 
-	public long getPrecioPorHora() {
-		return precioPorHora;
+	public float getPrecioPorHora() {
+		return this.precioPorHora;
 	}
 
 	public void setEstacionamientos(ArrayList<Estacionamiento> estacionamientos) {
@@ -86,7 +86,7 @@ public class SEMEstacionamiento {
 		this.semSistemaDeAsistencia = semSistemaDeAsistencia;
 	}
 
-	public void setPrecioPorHora(long precioPorHora) {
+	public void setPrecioPorHora(float precioPorHora) {
 		this.precioPorHora = precioPorHora;
 	}
 	
@@ -99,7 +99,7 @@ public class SEMEstacionamiento {
 		if(this.estaEnFranjaHoraria(horaFinal)) {
 			this.registrar(new EstacionamientoPuntual(patente, horaFinal, cantHoras));
 		}else {
-			horaFinal = LocalTime.of(20, 00);
+			horaFinal = this.getHoraFinalFranja();
 			this.registrar(new EstacionamientoPuntual(patente, horaFinal, cantHoras));
 		}
 	}
@@ -116,14 +116,18 @@ public class SEMEstacionamiento {
 		
 	}
 	
-	public long precioPorMinuto() {
+	public float precioPorMinuto() {
 		return this.getPrecioPorHora()/60;
 	}
 	
+	public float minutosDisponibles(float saldo, float precioPorMinuto) {
+		return saldo / precioPorMinuto;
+	}
+	
 	public LocalTime definirHoraMaxima(float creditoDisponible, LocalTime horarioDeInicio) {
-		long cd = (long) creditoDisponible;
-		long minutosDisponibles = Math.multiplyExact(cd, this.precioPorMinuto());
-		LocalTime respuesta = horarioDeInicio.plusMinutes(minutosDisponibles);
+		float minutosDisponibles = this.minutosDisponibles(creditoDisponible, this.precioPorMinuto());
+		long minutos = (long) minutosDisponibles;
+		LocalTime respuesta = horarioDeInicio.plusMinutes(minutos);
 		return (this.estaEnFranjaHoraria(respuesta)) ? respuesta : this.getHoraFinalFranja();
 	}
 	
@@ -131,27 +135,37 @@ public class SEMEstacionamiento {
 		LocalTime horaFin = LocalTime.now();
 		Estacionamiento e = this.buscarEstacionamientoVigente(celular);
 		e.finalizar(horaFin);
-		long minutosConsumidos = (e.getHoraFinal().toSecondOfDay() - e.getHoraInicio().toSecondOfDay())*60; 
-		LocalTime horasTotal = LocalTime.of(0, 0).plusMinutes(minutosConsumidos);
+		long minutosConsumidos = this.minutosConsumidos(e.getHoraInicio(), e.getHoraFinal()); 
+		LocalTime horasTotal = this.calculoHorasTotal(minutosConsumidos);
 		float costo = minutosConsumidos * this.precioPorMinuto();
 		this.getSemCelular().descontarCredito(celular, costo);
-		return new NotificacionFinEstacionamiento(e.getHoraInicio(), horaFin, horasTotal, costo);
+		return new NotificacionFinEstacionamiento(e.getHoraInicio(), e.getHoraFinal(), horasTotal, costo);
 	}
+	
+	public long minutosConsumidos(LocalTime horaInicio, LocalTime horaFinal) {
+		return (horaFinal.toSecondOfDay() - horaInicio.toSecondOfDay())/60;
+	}
+	
+	public LocalTime calculoHorasTotal(long minutosConsumidos) {
+		LocalTime respuesta = LocalTime.of(00, 00); 
+		return respuesta.plusMinutes(minutosConsumidos);
+	}
+	
 	
 	public boolean estaEnFranjaHoraria(LocalTime horaInicio) {
 		return horaInicio.isAfter(horaInicioFranja) && horaInicio.isBefore(horaFinalFranja);
 	}
 	
 	public boolean estaVigentePatente(String patente) {
-		return this.getEstacionamientos().stream().anyMatch(e -> e.sonPatentesIguales(patente) && e.estaVigente());
+		return this.getEstacionamientos().stream().anyMatch(e -> e.estaVigente() && e.sonPatentesIguales(patente));
 	}
 	
 	public boolean estaVigenteCelular(String celular) {
-		return this.getEstacionamientos().stream().anyMatch(e -> e.sonNumerosIguales(celular) && e.estaVigente());
+		return this.getEstacionamientos().stream().anyMatch(e -> e.estaVigente() && e.sonNumerosIguales(celular));
 	}
 	
 	public Estacionamiento buscarEstacionamientoVigente(String celular) {
-		return this.getEstacionamientos().stream().filter(e -> e.sonNumerosIguales(celular) && e.estaVigente()).findAny().get();
+		return this.getEstacionamientos().stream().filter(e -> e.estaVigente() && e.sonNumerosIguales(celular)).findAny().get();
 	}
 	
 	public void finalizarTodosEstacionamientos() {

@@ -1,4 +1,4 @@
-package tpIntegrador.celular;
+package tpIntegrador.semCelular;
 
 public interface ISEMCelular {
 

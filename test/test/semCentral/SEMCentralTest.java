@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.mockito.Mockito.*;
 
-import tpIntegrador.celular.ISEMCelular;
+import tpIntegrador.semCelular.ISEMCelular;
 import tpIntegrador.semCentral.SEMCentral;
 import tpIntegrador.semCompra.ISEMCompra;
 import tpIntegrador.semControl.ISEMControl;

@@ -1,6 +1,6 @@
 package tpIntegrador.semCentral;
 
-import tpIntegrador.celular.ISEMCelular;
+import tpIntegrador.semCelular.ISEMCelular;
 import tpIntegrador.semCompra.ISEMCompra;
 import tpIntegrador.semControl.ISEMControl;
 import tpIntegrador.semEstacionamiento.ISEMEstacionamiento;
