@@ -36,7 +36,7 @@ class SEMCompraTest {
 	void testConstructor() {
 		assertEquals(0, semCompra.getCompras().size());
 		assertEquals(0, semCompra.getNroControl());
-		assertEquals(0, semCompra.getSemCelular());
+		assertEquals(semCelular, semCompra.getSemCelular());
 	}
 	
 	@Test

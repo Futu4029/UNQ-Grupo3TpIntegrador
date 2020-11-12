@@ -25,7 +25,7 @@ public class SEMEstacionamiento {
 	
 	public SEMEstacionamiento (ISEMCelular semCelular, ISEMZona semZona, 
 							   ISEMSistemaDeAsistencia semSistemaDeAsistencia, long precioPorHora){
-		this.setHoraFinalFranja(LocalTime.of(07,00));
+		this.setHoraInicioFranja(LocalTime.of(07,00));
 		this.setHoraFinalFranja(LocalTime.of(20,00));
 		estacionamientos = new ArrayList<Estacionamiento>();
 		this.setSemCelular(semCelular);
@@ -131,7 +131,6 @@ public class SEMEstacionamiento {
 		LocalTime horaFin = LocalTime.now();
 		Estacionamiento e = this.buscarEstacionamientoVigente(celular);
 		e.finalizar(horaFin);
-		e.actualizarHoraFin(horaFin);
 		long minutosConsumidos = (e.getHoraFinal().toSecondOfDay() - e.getHoraInicio().toSecondOfDay())*60; 
 		LocalTime horasTotal = LocalTime.of(0, 0).plusMinutes(minutosConsumidos);
 		float costo = minutosConsumidos * this.precioPorMinuto();
@@ -153,5 +152,13 @@ public class SEMEstacionamiento {
 	
 	public Estacionamiento buscarEstacionamientoVigente(String celular) {
 		return this.getEstacionamientos().stream().filter(e -> e.sonNumerosIguales(celular) && e.estaVigente()).findAny().get();
+	}
+	
+	public void finalizarTodosEstacionamientos() {
+		for(Estacionamiento e: this.getEstacionamientos()) {
+			if(e.estaVigente()) {
+			e.finalizar(this.getHoraFinalFranja());
+			}
+		}
 	}
 }

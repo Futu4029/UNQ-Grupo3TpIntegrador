@@ -53,5 +53,10 @@ class EstacionamientoVirtualTest {
 	void sonNrosIgualesTest() {
 		assertTrue(sut.sonNumerosIguales("123"));
 	}
+	
+	@Test
+	void noSonNrosIgualesTest() {
+		assertFalse(sut.sonNumerosIguales("456"));
+	}
 
 }

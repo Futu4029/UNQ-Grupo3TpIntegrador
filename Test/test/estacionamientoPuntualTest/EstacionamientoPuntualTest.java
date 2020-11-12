@@ -63,6 +63,12 @@ class EstacionamientoPuntualTest {
 	void estaVigenteTest() {
 		assertTrue(sut.estaVigente());
 	}
+	
+	@Test
+	void noEstaVigenteTest() {
+		sut.setHoraFinal(LocalTime.of(00, 01));
+		assertFalse(sut.estaVigente());
+	}
 
 	
 }
