@@ -20,7 +20,7 @@ public class Compra {
 	}
 	
 	public Integer getNroControl() {
-		return nroControl;
+		return this.nroControl;
 	}
 	
 	public void setNroControl(Integer nroControl) {
@@ -28,14 +28,14 @@ public class Compra {
 	}
 	
 	public PuntoDeVenta getPuntoDeVenta() {
-		return puntoDeVenta;
+		return this.puntoDeVenta;
 	}
 
 	public LocalDate getFecha() {
-		return fecha;
+		return this.fecha;
 	}
 
 	public LocalTime getHora() {
-		return hora;
+		return this.hora;
 	}
 }

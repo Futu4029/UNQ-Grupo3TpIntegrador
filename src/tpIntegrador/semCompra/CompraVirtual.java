@@ -14,11 +14,11 @@ public class CompraVirtual extends Compra{
 	}
 
 	public float getMonto() {
-		return monto;
+		return this.monto;
 	}
 
 	public String getNumeroCelular() {
-		return numeroCelular;
+		return this.numeroCelular;
 	}
 	
 }

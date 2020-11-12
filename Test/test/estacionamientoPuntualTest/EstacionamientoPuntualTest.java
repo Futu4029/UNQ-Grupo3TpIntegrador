@@ -13,7 +13,7 @@ class EstacionamientoPuntualTest {
 	
 	@BeforeEach
 	void setUp() {
-		sut = new EstacionamientoPuntual("WEE 420", LocalTime.of(14, 30) , 4);
+		sut = new EstacionamientoPuntual("WEE 420", LocalTime.of(23, 59) , 4);
 		sut.setHoraInicio(LocalTime.of(10, 30));
 	}
 	
@@ -30,7 +30,7 @@ class EstacionamientoPuntualTest {
 	
 	@Test
 	void getHoraFinTest() {
-		LocalTime respuesta = LocalTime.of(14, 30);
+		LocalTime respuesta = LocalTime.of(23, 59);
 		assertEquals(respuesta, sut.getHoraFinal());
 	}
 	

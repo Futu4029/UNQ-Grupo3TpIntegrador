@@ -7,7 +7,7 @@ public class SEMCelular implements ISEMCelular {
     private HashMap<String,Float> celulares;
     
     public SEMCelular() {	
-    	this.celulares = new HashMap<String,Float>();
+    	this.setCelulares(new HashMap<String,Float>());
     }
 
 	public HashMap<String,Float> getCelulares() {
@@ -37,7 +37,7 @@ public class SEMCelular implements ISEMCelular {
 	}
 
 	public void agregar(String nroCelular, float credito) {
-		this.celulares.put(nroCelular, credito);
+		this.getCelulares().put(nroCelular, credito);
 	}
 
 	public Boolean tieneCreditoSuficiente(String nroCelular, float creditoNecesitado) {
@@ -48,5 +48,9 @@ public class SEMCelular implements ISEMCelular {
 	public Boolean contieneRecargaRealizadaDe(String nroCelular) {
 		return this.getCelulares().containsKey(nroCelular);
 		
+	}
+
+	public void setCelulares(HashMap<String,Float> celulares) {
+		this.celulares = celulares;
 	}
 }

@@ -39,18 +39,15 @@ class PuntoDeVentaTest {
 		
 	@Test
 	void generaCompraPuntual() {	
-
 		puntoDeVenta.generarCompraPuntual(5, "ABD123");
-
-		verify(semCompra).registrar(any(CompraPuntual.class));
+		verify(semCompra).generarCompraPuntual(5, puntoDeVenta);
+		verify(semEstacionamiento).generarEstacionamientoPuntual("ABD123", 5);
 	}	
 	
 	@Test
 	void generarRecargaDeCredito() {
-		
-		puntoDeVenta.generarRecargaDeCredito("1122334455", 150);
-		
-		assertTrue(semCelular.contieneRecargaRealizadaDe("1122334455"));
+		puntoDeVenta.generarRecargaDeCredito("1122334455", 150f);
+		verify(semCompra).comprarCredito("1122334455", 150f, puntoDeVenta);
 	}	
 		
 }

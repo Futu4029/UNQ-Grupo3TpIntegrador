@@ -9,5 +9,7 @@ public interface ISEMCelular {
 	public void agregar(String nroCelular, float credito);
 	
 	public Boolean tieneCreditoSuficiente(String nroCelular, float credito);
+	
+	public void descontarCredito(String nroCelular, float montoADescontar);
 }
 

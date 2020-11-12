@@ -54,10 +54,10 @@ public class SEMCompra implements ISEMCompra{
 
 	//@Override
 	public void comprarCredito(String nroCelular, float monto, PuntoDeVenta puntoDeVenta) {
-		CompraVirtual compra = new CompraVirtual(nroControl, puntoDeVenta, monto, nroCelular);
+		CompraVirtual compraVirtual = new CompraVirtual(nroControl, puntoDeVenta, monto, nroCelular);
 		this.generarProximoNroControl();
-		this.registrar(compra);
-		semCelular.recargar(nroCelular, monto); 
+		this.registrar(compraVirtual);
+		this.semCelular.recargar(nroCelular, monto); 
 	}
 
 }

@@ -23,7 +23,7 @@ public class PuntoDeVenta {
 
 	public void generarCompraPuntual(Integer cantHoras, String patente) {
 		this.getSemCompra().generarCompraPuntual(cantHoras, this);
-		this.getSemEstacionamiento().generarCompraPuntual(patente, cantHoras);
+		this.getSemEstacionamiento().generarEstacionamientoPuntual(patente, cantHoras);
 
 	}
 
