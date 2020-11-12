@@ -33,6 +33,7 @@ public class EstacionamientoVirtual extends Estacionamiento{
 	public void actualizarHoraFin(LocalTime horaFin) {
 		this.setHoraFinal(horaFin);
 	}
+	
 	@Override
 	public boolean sonNumerosIguales(String nroCelu) {
 		return this.getCelular() == nroCelu;
