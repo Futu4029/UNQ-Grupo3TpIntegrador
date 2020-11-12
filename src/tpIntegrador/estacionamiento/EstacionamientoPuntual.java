@@ -38,4 +38,7 @@ public class EstacionamientoPuntual extends Estacionamiento{
 	@Override
 	public void finalizar(LocalTime horaFin) {}
 	
+	@Override
+	public void actualizarHoraFin(LocalTime horaFin) {}
+	
 }

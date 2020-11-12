@@ -47,5 +47,6 @@ public abstract class Estacionamiento {
 	public abstract String getCelular();
 	public abstract boolean sonNumerosIguales(String nroCelu);
 	public abstract void finalizar(LocalTime horaFin);
-
+	public abstract void actualizarHoraFin(LocalTime horaFin);
+	
 }
