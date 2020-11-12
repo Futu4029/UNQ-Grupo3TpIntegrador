@@ -12,7 +12,7 @@ public class Compra {
 	private LocalDate fecha;
 	private LocalTime hora;
 	
-	public Compra(PuntoDeVenta puntoDeVenta, Integer nroControl) {
+	public Compra(Integer nroControl, PuntoDeVenta puntoDeVenta) {
 		this.setNroControl(nroControl);
 		this.puntoDeVenta = puntoDeVenta;
 		this.fecha = LocalDate.now(); 

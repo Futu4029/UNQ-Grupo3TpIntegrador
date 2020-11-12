@@ -8,20 +8,26 @@ public class PuntoDeVenta {
 	private SEMCompra semCompra;
 	private SEMEstacionamiento semEstacionamiento;
 
-	
 	public PuntoDeVenta(SEMCompra semCompra, SEMEstacionamiento semEstacionamiento) {
 		this.semCompra = semCompra;
 		this.semEstacionamiento= semEstacionamiento;
 	}
 
-	//@Override
-	public void generarCompraPuntual(Integer cantHoras, String patente) {
-		semCompra.generarCompraPuntual(cantHoras, this);
-		semEstacionamiento.generarEstacionamientoPuntual(patente, cantHoras);
+	public SEMCompra getSemCompra() {
+		return semCompra;
 	}
 
-	//@Override
+	public SEMEstacionamiento getSemEstacionamiento() {
+		return semEstacionamiento;
+	}
+
+	public void generarCompraPuntual(Integer cantHoras, String patente) {
+		this.getSemCompra().generarCompraPuntual(cantHoras, this);
+		this.getSemEstacionamiento().generarCompraPuntual(patente, cantHoras);
+
+	}
+
 	public void generarRecargaDeCredito(String nroCelular, float monto) {
-		semCompra.comprarCredito(nroCelular, monto, this);
+		this.getSemCompra().comprarCredito(nroCelular, monto, this);
 	}
 }
