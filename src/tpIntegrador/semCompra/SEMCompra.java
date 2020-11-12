@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import tpIntegrador.celular.SEMCelular;
 import tpIntegrador.semZona.PuntoDeVenta;
 
-public class SEMCompra {
+public class SEMCompra implements ISEMCompra{
 
 	private ArrayList<Compra> compras;
 	private SEMCelular semCelular;

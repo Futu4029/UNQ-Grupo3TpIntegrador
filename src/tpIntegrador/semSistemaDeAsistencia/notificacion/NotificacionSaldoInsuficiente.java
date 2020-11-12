@@ -7,6 +7,5 @@ public class NotificacionSaldoInsuficiente extends Notificacion{
 		
 		return  "Saldo insuficiente. Estacionamiento no permitido.";
 	}
-	
 
 }

@@ -1,5 +1,8 @@
 package tpIntegrador.appEstacionamiento;
 
+import tpIntegrador.semSistemaDeAsistencia.notificacion.NotificacionAlertaFinalizarEstacionamiento;
+import tpIntegrador.semSistemaDeAsistencia.notificacion.NotificacionAlertaIniciarEstacionamiento;
+
 public class AlertaActivada implements ModoAlerta {
 
 	public AlertaActivada() {
@@ -7,12 +10,12 @@ public class AlertaActivada implements ModoAlerta {
 	}
 
 	@Override
-	public void comenzoACaminar() {
-		System.out.println("Deberías iniciar estacionamiento");
+	public String comenzoACaminar() {
+		return new NotificacionAlertaIniciarEstacionamiento().imprimir();
 	}
 
 	@Override
-	public void comenzoAManejar() {
-		System.out.println("Deberías finalizar estacionamiento");
+	public String comenzoAManejar() {
+		return new NotificacionAlertaFinalizarEstacionamiento().imprimir();
 	}
 }
